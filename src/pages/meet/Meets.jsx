@@ -1,7 +1,7 @@
 import { Table, Modal, Button, Row, Container, Col } from "react-bootstrap"
 import { useEffect, useState } from "react"
 import { connectionApi } from "../../services/connectionApi"
-import { ButtonDelMeet } from "../../components/ButtonDelMeet.jsx"
+import { ButtonDel } from "../../components/ButtonDel.jsx"
 import { BiAddToQueue } from "react-icons/bi"
 import { CreateMeet } from "./CreateMeet"
 
@@ -68,7 +68,7 @@ export function Meets() {
               <td>{meet.dateMeet}</td>
               <td>{meet.room.description}</td>
               <td>
-                <ButtonDelMeet address="/meet/" id={meet.id} msgOk="Reunion eliminada con exito!" msqError="Error al eliminar la reunion" />
+                <ButtonDel address="/meet/" id={meet.id} msgOk="Reunion eliminada con exito!" msqError="Error al eliminar la reunion" />
               </td>
             </tr>
           ))}

@@ -9,14 +9,14 @@ export function CreateAct() {
 
 
   function send() {
-    try {
+   
       connectionApi
         .post("/act", {
           description,
           "meet": { "id":meet}
         })
         .then((response) => {
-          if (response.status === 200) {
+          if (response.data) {
             Swal.fire({
               title: "Success!",
               text: "Acta creada exitosamente!",
@@ -32,9 +32,15 @@ export function CreateAct() {
             })
           }
         })
-    } catch (error) {
-      console.log(error)
-    }
+          .catch((error) => {
+          
+            Swal.fire({
+              title: "Error!",
+              text: msgError,
+              icon: "error",
+              confirmButtonText: "Ok"
+            })
+          })
   }
 
   return (

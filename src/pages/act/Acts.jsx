@@ -1,10 +1,13 @@
-import {Table} from 'react-bootstrap'
+import { Table, Modal, Button, Row, Container, Col } from "react-bootstrap"
 import {useEffect, useState} from 'react'
 import { connectionApi } from '../../services/connectionApi'
-import { ButtonDelAct } from '../../components/ButtonDelAct.jsx'
+import { ButtonDel } from '../../components/ButtonDel.jsx'
+import { BiAddToQueue } from "react-icons/bi"
+import { CreateAct } from "./CreateAct"
+
 
 export function Acts(){
-
+    const [smShow, setSmShow] = useState(false)
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -16,7 +19,39 @@ export function Acts(){
         
     return (
         <>
-            <h1>Actas</h1>
+            <Container>
+        <Row>
+          <Col xs="2">
+            <h2>Actas</h2>
+          </Col>
+          <Col>
+            <Button
+              variant="success"
+              onClick={() => setSmShow(true)}
+              className="me-2"
+            >
+              Agregar <BiAddToQueue />
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+
+      <Modal
+        size="sm"
+        show={smShow}
+        onHide={() => setSmShow(false)}
+        aria-labelledby="example-modal-sizes-title-sm"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-sm">
+            Agregar Acta
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <CreateAct />
+        </Modal.Body>
+      </Modal>
+
 
             <Table>
                 <thead>
@@ -33,7 +68,7 @@ export function Acts(){
                             <td>{act.description}</td>
                             <td>{act.meet.affair}</td>
                             
-                            <td><ButtonDelAct address="/act/" id={room.id} msgOk="Acta eliminada con exito!" msqError="Error al eliminar el acta"/></td>
+                            <td><ButtonDel address="/act/" id={act.id} msgOk="Acta eliminada con exito!" msqError="Error al eliminar el acta"/></td>
                         </tr>
                     ))}
                 </tbody>

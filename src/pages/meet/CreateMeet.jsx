@@ -19,14 +19,14 @@ export function CreateMeet() {
         if (response.data) {
           Swal.fire({
             title: "Success!",
-            text: "Sala creada exitosamente!",
+            text: "Reunion creada exitosamente!",
             icon: "success",
             confirmButtonText: "Ok"
           })
         } else {
           Swal.fire({
             title: "Error!",
-            text: "Error al crear la sala!",
+            text: "Error al crear la Reunion!",
             icon: "error",
             confirmButtonText: "Ok"
           })
@@ -35,7 +35,7 @@ export function CreateMeet() {
       .catch((error) => {
         Swal.fire({
           title: "Error!",
-          text: "Error al crear la sala!",
+          text: "Error al crear la Reunion!",
           icon: "error",
           confirmButtonText: "Ok"
         })

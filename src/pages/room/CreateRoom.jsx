@@ -8,14 +8,14 @@ export function CreateRoom() {
   const [capacity, setCapacity] = useState(undefined)
 
   function send() {
-    try {
+    
       connectionApi
         .post("/room", {
           description,
           capacity
         })
         .then((response) => {
-          if (response.status === 200) {
+          if (response.data) {
             Swal.fire({
               title: "Success!",
               text: "Sala creada exitosamente!",
@@ -31,9 +31,16 @@ export function CreateRoom() {
             })
           }
         })
-    } catch (error) {
-      console.log(error)
-    }
+        .catch((error) => {
+          
+          Swal.fire({
+            title: "Error!",
+            text: msgError,
+            icon: "error",
+            confirmButtonText: "Ok"
+          })
+        })
+    
   }
 
   return (
