@@ -3,16 +3,18 @@ import { Button, Form } from "react-bootstrap"
 import { connectionApi } from "../../services/connectionApi"
 import Swal from "sweetalert2"
 
-export function Create() {
-  const [description, setDescription] = useState(undefined)
-  const [capacity, setCapacity] = useState(undefined)
+export function CreateMeet() {
+  const [affair, setAffair] = useState(undefined)
+  const [dateMeet, setDateMeet] = useState(undefined)
+  const [room, setRoom] = useState(undefined)
 
   function send() {
     try {
       connectionApi
-        .post("/room", {
-          description,
-          capacity
+        .post("/meet", {
+          affair,
+          dateMeet,
+          "room": { "id":room}
         })
         .then((response) => {
           if (response.status === 200) {
@@ -38,27 +40,38 @@ export function Create() {
 
   return (
     <>
-      <h1>Crear sala</h1>
+      <h1>Crear reunion</h1>
 
       <Form>
         <Form.Group>
-          <Form.Label>Descripcion</Form.Label>
+          <Form.Label>Asunto</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ingrese la descripcion"
+            placeholder="Ingrese el asunto de la reunion"
             onChange={(e) => {
-              setDescription(e.target.value)
+              setAffair(e.target.value)
             }}
           />
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Capacidad</Form.Label>
+          <Form.Label>Fecha y hora</Form.Label>
+          <Form.Control
+            type="datetime-local"
+            placeholder="Ingrese la fecha y hora de la reunion"
+            onChange={(e) => {
+              setDateMeet(e.target.value)
+            }}
+          />
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label></Form.Label>
           <Form.Control
             type="number"
-            placeholder="Ingrese la capacidad"
+            placeholder="Ingrese el ID de la sala"
             onChange={(e) => {
-              setCapacity(e.target.value)
+              setRoom(e.target.value)
             }}
           />
         </Form.Group>

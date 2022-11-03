@@ -1,14 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Container } from "react-bootstrap"
 
-import { Create } from "./pages/room/Create.jsx"
-import {Rooms} from "./pages/room/Rooms.jsx"
+import { CreateMeet } from "./pages/meet/CreateMeet.jsx"
+import {Meets} from "./pages/meet/Meets.jsx"
 
 function App() {
   return (
     <Container>
-      <Create />
-      <Rooms/>
+      <CreateMeet />
+      <Meets/>
     </Container>
   )
 }
