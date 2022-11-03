@@ -1,8 +1,9 @@
 import { connectionApi } from "../services/connectionApi"
 import Swal from "sweetalert2"
 import { Button } from "react-bootstrap"
+import { MdDelete } from "react-icons/md"
 
-export function ButtonDelRoom({id}) {
+export function ButtonDelRoom({ id }) {
   function send() {
     connectionApi
       .delete(`/room/${id}`)
@@ -31,10 +32,11 @@ export function ButtonDelRoom({id}) {
           confirmButtonText: "Ok"
         })
       })
-    }
+  }
   return (
     <Button variant="danger" onClick={send}>
       Eliminar
+      <MdDelete />
     </Button>
   )
 }

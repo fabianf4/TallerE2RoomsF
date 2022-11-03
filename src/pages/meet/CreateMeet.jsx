@@ -9,38 +9,42 @@ export function CreateMeet() {
   const [room, setRoom] = useState(undefined)
 
   function send() {
-    try {
-      connectionApi
-        .post("/meet", {
-          affair,
-          dateMeet,
-          "room": { "id":room}
+    connectionApi
+      .post("/meet", {
+        affair,
+        dateMeet,
+        room: { id: room }
+      })
+      .then((response) => {
+        if (response.data) {
+          Swal.fire({
+            title: "Success!",
+            text: "Sala creada exitosamente!",
+            icon: "success",
+            confirmButtonText: "Ok"
+          })
+        } else {
+          Swal.fire({
+            title: "Error!",
+            text: "Error al crear la sala!",
+            icon: "error",
+            confirmButtonText: "Ok"
+          })
+        }
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: "Error!",
+          text: "Error al crear la sala!",
+          icon: "error",
+          confirmButtonText: "Ok"
         })
-        .then((response) => {
-          if (response.status === 200) {
-            Swal.fire({
-              title: "Success!",
-              text: "Sala creada exitosamente!",
-              icon: "success",
-              confirmButtonText: "Ok"
-            })
-          }else{
-            Swal.fire({
-              title: "Error!",
-              text: "Error al crear la sala!",
-              icon: "error",
-              confirmButtonText: "Ok"
-            })
-          }
-        })
-    } catch (error) {
-      console.log(error)
-    }
+      })
   }
 
   return (
     <>
-      <h1>Crear reunion</h1>
+      <h2>Crear reunion</h2>
 
       <Form>
         <Form.Group>
