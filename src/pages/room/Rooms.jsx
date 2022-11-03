@@ -1,7 +1,7 @@
 import {Table} from 'react-bootstrap'
 import {useEffect, useState} from 'react'
 import { connectionApi } from '../../services/connectionApi'
-import { ButtonDelRoom } from '../../components/ButtonDelRoom.jsx'
+import { ButtonDel } from '../../components/ButtonDel.jsx'
 
 export function Rooms(){
 
@@ -33,7 +33,7 @@ export function Rooms(){
                             <td>{room.id}</td>
                             <td>{room.description}</td>
                             <td>{room.capacity}</td>
-                            <td><ButtonDelRoom id={room.id}/></td>
+                            <td><ButtonDel address="/room/" id={room.id} msgOk="Sala eliminada con exito!" msqError="Error al eliminar la sala"/></td>
                         </tr>
                     ))}
                 </tbody>

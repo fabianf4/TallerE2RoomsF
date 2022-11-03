@@ -33,7 +33,7 @@ export function Acts(){
                             <td>{act.description}</td>
                             <td>{act.meet.affair}</td>
                             
-                            <td><ButtonDelAct id={act.id}/></td>
+                            <td><ButtonDelAct address="/act/" id={room.id} msgOk="Acta eliminada con exito!" msqError="Error al eliminar el acta"/></td>
                         </tr>
                     ))}
                 </tbody>

@@ -68,7 +68,7 @@ export function Meets() {
               <td>{meet.dateMeet}</td>
               <td>{meet.room.description}</td>
               <td>
-                <ButtonDelMeet id={meet.id} />
+                <ButtonDelMeet address="/meet/" id={meet.id} msgOk="Reunion eliminada con exito!" msqError="Error al eliminar la reunion" />
               </td>
             </tr>
           ))}
