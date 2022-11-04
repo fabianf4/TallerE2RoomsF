@@ -3,6 +3,7 @@ import Swal from "sweetalert2"
 import { Button } from "react-bootstrap"
 import { MdDelete } from "react-icons/md"
 
+
 export function ButtonDel({ address, id, msgOk, msgError }) {
   function send() {
     connectionApi

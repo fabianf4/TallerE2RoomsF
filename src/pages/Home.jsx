@@ -1,5 +1,6 @@
-import { Outlet, Link } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { Nav } from "react-bootstrap"
+import { UpdateRoom } from "./room/UpdateRoom.jsx"
 
 export function Home() {
   return (

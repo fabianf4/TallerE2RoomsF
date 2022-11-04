@@ -4,9 +4,12 @@ import { connectionApi } from '../../services/connectionApi'
 import { ButtonDel } from '../../components/ButtonDel.jsx'
 import { BiAddToQueue } from "react-icons/bi"
 import { CreateRoom } from '../room/CreateRoom'
+import { ButtonUpdate } from "../../components/ButtonUpdate"
+import { UpdateRoom } from "./UpdateRoom"
 
 export function Rooms(){
-    const [smShow, setSmShow] = useState(false)
+    const [modalAdd, setModalAdd] = useState(false)
+
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -26,7 +29,7 @@ export function Rooms(){
           <Col>
             <Button
               variant="success"
-              onClick={() => setSmShow(true)}
+              onClick={() => setModalAdd(true)}
               className="me-2"
             >
               Agregar <BiAddToQueue />
@@ -37,8 +40,8 @@ export function Rooms(){
 
       <Modal
         size="sm"
-        show={smShow}
-        onHide={() => setSmShow(false)}
+        show={modalAdd}
+        onHide={() => setModalAdd(false)}
         aria-labelledby="example-modal-sizes-title-sm"
       >
         <Modal.Header closeButton>
@@ -66,7 +69,10 @@ export function Rooms(){
                             <td>{room.id}</td>
                             <td>{room.description}</td>
                             <td>{room.capacity}</td>
-                            <td><ButtonDel address="/room/" id={room.id} msgOk="Sala eliminada con exito!" msqError="Error al eliminar la sala"/></td>
+                            <td>
+                                <ButtonUpdate childrenUpdate={<UpdateRoom id={room.id} infoDescription={room.description} infoCapacity={room.capacity}/>} title="Actualizar Sala"/>
+                                <ButtonDel address="/room/" id={room.id} msgOk="Sala eliminada con exito!" msqError="Error al eliminar la sala"/>
+                                </td>
                         </tr>
                     ))}
                 </tbody>
