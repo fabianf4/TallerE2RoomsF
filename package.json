@@ -1,4 +1,5 @@
 {
+  "homepage":"https://fabianf4.github.io/TallerE2RoomsF",
   "name": "salas-reuniones",
   "private": true,
   "version": "0.0.0",
@@ -22,6 +23,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.1.0",
+    "gh-pages": "^4.0.0",
     "vite": "^3.1.0"
   }
 }
