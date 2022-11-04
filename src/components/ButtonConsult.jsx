@@ -8,7 +8,7 @@ export function ButtonConsult({ children , title }) {
   return (
     <>
       <Button variant="primary" onClick={() => setShow(true)} className="me-2">
-        Buscar <BiSearchAlt />
+        Mostrar <BiSearchAlt />
       </Button>
 
       <Modal
