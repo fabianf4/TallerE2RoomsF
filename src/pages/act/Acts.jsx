@@ -3,8 +3,9 @@ import {useEffect, useState} from 'react'
 import { connectionApi } from '../../services/connectionApi'
 import { ButtonDel } from '../../components/ButtonDel.jsx'
 import { BiAddToQueue } from "react-icons/bi"
+import { ButtonUpdate } from "../../components/ButtonUpdate"
 import { CreateAct } from "./CreateAct"
-
+import { UpdateAct } from "./UpdateAct"
 
 export function Acts(){
     const [smShow, setSmShow] = useState(false)
@@ -59,6 +60,7 @@ export function Acts(){
                         <th>Id</th>
                         <th>Descripcion</th>
                         <th>Reunion</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,7 +70,11 @@ export function Acts(){
                             <td>{act.description}</td>
                             <td>{act.meet.affair}</td>
                             
-                            <td><ButtonDel address="/act/" id={act.id} msgOk="Acta eliminada con exito!" msqError="Error al eliminar el acta"/></td>
+                            <td>
+                            <ButtonUpdate childrenUpdate={<UpdateAct id={act.id} infoDescription={act.description} infoMeetId={act.meet.id}/>} title="Actualizar Acta"/>
+                            <ButtonDel address="/act/" id={act.id} msgOk="Acta eliminada con exito!" msqError="Error al eliminar el acta"/>
+                            
+                            </td>
                         </tr>
                     ))}
                 </tbody>

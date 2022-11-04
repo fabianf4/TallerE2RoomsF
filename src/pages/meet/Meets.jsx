@@ -4,6 +4,8 @@ import { connectionApi } from "../../services/connectionApi"
 import { ButtonDel } from "../../components/ButtonDel.jsx"
 import { BiAddToQueue } from "react-icons/bi"
 import { CreateMeet } from "./CreateMeet"
+import { ButtonUpdate } from "../../components/ButtonUpdate"
+import { UpdateMeet } from "./UpdateMeet"
 
 export function Meets() {
   const [smShow, setSmShow] = useState(false)
@@ -68,6 +70,7 @@ export function Meets() {
               <td>{meet.dateMeet}</td>
               <td>{meet.room.description}</td>
               <td>
+              <ButtonUpdate childrenUpdate={<UpdateMeet id={meet.id} infoAffair={meet.affair} infoDateMeet={meet.dateMeet} infoRoomId={meet.room.id}/>} title="Actualizar Reunion"/>
                 <ButtonDel address="/meet/" id={meet.id} msgOk="Reunion eliminada con exito!" msqError="Error al eliminar la reunion" />
               </td>
             </tr>
