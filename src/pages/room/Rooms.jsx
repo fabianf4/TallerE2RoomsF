@@ -19,7 +19,7 @@ export function Rooms(){
         .then(response => {
             setData(response.data)
         })
-    }, [])
+    }, [ButtonUpdate, ButtonDel, modalAdd])
         
     return (
         <>

@@ -10,13 +10,13 @@ export function Home() {
 
       <Nav>
         <Nav.Item>
-          <Nav.Link href="/rooms">Salas</Nav.Link>
+          <Nav.Link href="/TallerE2RoomsF/rooms">Salas</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/meets">Reuniones</Nav.Link>
+          <Nav.Link href="/TallerE2RoomsF/meets">Reuniones</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/acts">Actas</Nav.Link>
+          <Nav.Link href="/TallerE2RoomsF/acts">Actas</Nav.Link>
         </Nav.Item>
       </Nav>
       <br />

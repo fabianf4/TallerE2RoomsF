@@ -50,7 +50,6 @@ export function UpdateRoom({ id , infoDescription="", infoCapacity="" }) {
 
   return (
     <>
-      <h1>Actualizar sala</h1>
 
       <Form>
         <Form.Group>
