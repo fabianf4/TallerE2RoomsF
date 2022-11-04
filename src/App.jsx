@@ -11,7 +11,7 @@ import { Meets } from "./pages/meet/Meets.jsx"
 function App() {
   const router = createBrowserRouter([
     {
-      path: "TallerE2RoomsF",
+      path: "/",
       element: <Home />,
       errorElement: <ErrorPage />,
       children: [
