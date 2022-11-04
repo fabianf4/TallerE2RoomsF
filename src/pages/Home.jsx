@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom"
 import { Nav } from "react-bootstrap"
 import { UpdateRoom } from "./room/UpdateRoom.jsx"
+import { FindMeet } from "./room/FindMeet.jsx"
 
 export function Home() {
   return (

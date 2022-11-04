@@ -6,6 +6,8 @@ import { BiAddToQueue } from "react-icons/bi"
 import { CreateRoom } from '../room/CreateRoom'
 import { ButtonUpdate } from "../../components/ButtonUpdate"
 import { UpdateRoom } from "./UpdateRoom"
+import { FindMeet } from "./FindMeet"
+import { ButtonConsult } from "../../components/ButtonConsult"
 
 export function Rooms(){
     const [modalAdd, setModalAdd] = useState(false)
@@ -70,6 +72,7 @@ export function Rooms(){
                             <td>{room.description}</td>
                             <td>{room.capacity}</td>
                             <td>
+                                <ButtonConsult children={<FindMeet idSearch={room.id}/>} title="Reuniones de la sala "/>
                                 <ButtonUpdate childrenUpdate={<UpdateRoom id={room.id} infoDescription={room.description} infoCapacity={room.capacity}/>} title="Actualizar Sala"/>
                                 <ButtonDel address="/room/" id={room.id} msgOk="Sala eliminada con exito!" msqError="Error al eliminar la sala"/>
                                 </td>
